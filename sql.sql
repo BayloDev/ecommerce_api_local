@@ -21,3 +21,7 @@ WHERE ItemsView.categories_id = 1
 CREATE OR REPLACE VIEW myFavorites AS
 SELECT items.*, favorites.*
 FROM items INNER JOIN favorites ON items.items_id = favorites.favorites_items_id
+
+CREATE OR REPLACE VIEW cartView AS 
+SELECT  items.*, cart.*,cart_item_number*items.items_price AS total_price
+FROM items INNER JOIN cart ON items.items_id = cart.cart_item_id 

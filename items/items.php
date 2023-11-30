@@ -1,5 +1,5 @@
 <?php
-include "connect.php";
+include "../connect.php";
 
 $category_id = filterRequest('category_id');
 $user_id = filterRequest('user_id');

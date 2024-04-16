@@ -1,10 +1,12 @@
 <?php
 include '../connect.php';
-$user_id = filterRequest('user_id');
-$item_id = filterRequest('item_id');
-
-$stmt = $con->prepare('DELETE FROM cart WHERE cart_user_id = ? AND cart_item_id = ?');
-$stmt->execute(array($user_id, $item_id));
+//$cart_ids = filterRequest('cart');
+$data = array(23, 45, 43);
+foreach ($data as $field => $v) {
+    $fields = implode(',', array_values($data));
+}
+$stmt = $con->prepare("DELETE FROM cart WHERE cart_id IN ($field) ");
+$stmt->execute();
 $count = $stmt->rowCount();
 if ($count > 0) {
     echo json_encode(array("status" => "success"));

@@ -12,7 +12,7 @@ function printFailure($message = 'NONE')
 }
 function sendEmail($to, $subject, $message)
 {
-  
+
     $header = "\nFrom: ecommerce@support.com " . "\n";
     $header .= "CC: ecommerce@support.com";
     mail($to, $subject, $message . $header);
@@ -146,7 +146,7 @@ function deleteFile($dir, $imagename)
 
 function checkAuthenticate()
 {
-        
+
     if (isset($_SERVER['PHP_AUTH_USER'])  && isset($_SERVER['PHP_AUTH_PW'])) {
         if ($_SERVER['PHP_AUTH_USER'] !== "4374722_bilalecommerce" &&  $_SERVER['PHP_AUTH_PW'] !== "Ecommerce44@") {
             header('WWW-Authenticate: Basic realm="My Realm"');
@@ -157,5 +157,4 @@ function checkAuthenticate()
     } else {
         exit;
     }
-    
 }
